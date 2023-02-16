@@ -7,6 +7,15 @@ const persistConfig = {
 	storage,
 };
 
+const tokenDataReducer=(state=[], action)=>{
+    switch(action.type){
+        case "SET_TOKEN_DATA":
+            return action.payload;
+        default:
+            return state;
+    }
+}
+
 
 const initialWalletState = {
     user: {
@@ -42,6 +51,10 @@ const contractStorageReducer = (state=0, action) => {
     }
 }
 
-const reducers = combineReducers({walletConfig: connectWalletReducer, contractStorage: contractStorageReducer});
+const reducers = combineReducers({
+  walletConfig: connectWalletReducer,
+  contractStorage: contractStorageReducer,
+  tokenData: tokenDataReducer
+});
 const persistedReducer = persistReducer(persistConfig, reducers);
 export default persistedReducer;
