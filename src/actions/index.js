@@ -18,7 +18,7 @@ export const connectWallet = ({wallet, Tezos}) => {
                 await wallet.requestPermissions({
                 network: {
                     type: NetworkType.GHOSTNET,
-                    rpcUrl: "https://ghostnet.ecadinfra.com/"
+                    rpcUrl: "https://ghostnet.smartpy.io/",
                 }
                 });
             }
@@ -50,7 +50,7 @@ export const _walletConfig = (user) => {
 export const disconnectWallet = ({wallet, setTezos}) => {
     return async (dispatch) => {
 
-        setTezos(new TezosToolkit("https://ghostnet.ecadinfra.com/"));
+        setTezos(new TezosToolkit("https://ghostnet.smartpy.io/"));
 
         dispatch({
             type:"DISCONNECT_WALLET",
